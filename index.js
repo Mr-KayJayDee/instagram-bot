@@ -3,7 +3,8 @@ const InstaBot = require("./Structure/Client"),
 
 const util = require("util"),
     fs = require("fs"),
-    readdir = util.promisify(fs.readdir);
+    readdir = util.promisify(fs.readdir),
+    mongoose = require("mongoose");
 require("dotenv").config();
 
 const initialize = async () => {
@@ -26,5 +27,11 @@ const initialize = async () => {
         delete require.cache[require.resolve(`./Events/${file}`)];
     });
     client.login(process.env.BOTUSERNAME, process.env.PASSWORD);
+
+    mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+		client.logger.log("Connected to the Mongodb database.", "ready");
+	}).catch((err) => {
+		client.logger.log("Unable to connect to the Mongodb database. Error:"+err, "error");
+	});
 };
 initialize();

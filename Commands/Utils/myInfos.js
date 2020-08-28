@@ -14,8 +14,9 @@ module.exports = class extends Command {
     }
 
     async run(message, args) {
-        message.chat.sendMessage(
-`FUll Name: ${message.author.fullName}
+        message.author.fetch().then(e => {
+            message.chat.sendMessage(
+                `Full Name: ${message.author.fullName}
 Username: ${message.author.username}
 ID: ${message.author.id}
 Biography:\n${message.author.biography}
@@ -27,5 +28,6 @@ Private: ${message.author.isPrivate}
 Number Of Posts: ${message.author.mediaCount}
 Number Of IGTV posts: ${message.author.totalIgtvVideos}
 `)
+        })
     }
 }
