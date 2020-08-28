@@ -1,4 +1,4 @@
-const Collection = require("@discordjs/collection");
+const Collection = require(`@discordjs/collection`);
 
 module.exports = class {
     constructor(client) {
@@ -31,13 +31,13 @@ module.exports = class {
             this.client.commands.get(this.client.aliases.get(command));
         if (!cmd) return;
 
-        this.client.logger.log(`${message.author.username} (${message.authorID}) ran command ${cmd.help.name}`, "cmd")
+        this.client.logger.log(`${message.author.username} (${message.authorID}) ran command ${cmd.help.name}`, `cmd`)
 
         if (!cmd.conf.enabled) {
-            return message.chat.sendMessage("Sorry this command is disabled.");
+            return message.chat.sendMessage(`Sorry this command is disabled.`);
         }
         if (cmd.conf.dmOnly && message.chat.isGroup) {
-            return message.chat.sendMessage("Sorry this command is usable only in a private conversation.");
+            return message.chat.sendMessage(`Sorry this command is usable only in a private conversation.`);
         }
 
         if (!this.client.cooldowns.has(cmd.help.name)) {

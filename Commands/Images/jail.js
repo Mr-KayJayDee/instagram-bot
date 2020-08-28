@@ -1,12 +1,12 @@
 let Command = require(`../../Structure/Command.js`);
-const DIG = require("discord-image-generation");
+const DIG = require(`discord-image-generation`);
 
 module.exports = class extends Command {
     constructor(client) {
         super(client, {
-            name: "jail",
-            description: "Return a jail image.",
-            category: "Images",
+            name: `jail`,
+            description: `Return a jail image.`,
+            category: `Images`,
             enabled: true,
             aliases: [],
             cooldown: 3,
@@ -17,7 +17,7 @@ module.exports = class extends Command {
     async run(message, args) {
         let avatar = message.author.avatarURL;
         let img = await new DIG.Jail().getImage(avatar);
-        message.chat.sendMessage("Please wait we're generating your image...");
+        message.chat.sendMessage(`Please wait we're generating your image...`);
         message.chat.sendPhoto(img);
     }
 };

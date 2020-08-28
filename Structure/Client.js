@@ -1,16 +1,16 @@
-const { Client } = require("@androz2091/insta.js"),
-    Collection = require("@discordjs/collection")
-path = require("path");
+const { Client } = require(`@androz2091/insta.js`),
+    Collection = require(`@discordjs/collection`)
+path = require(`path`);
 
 class InstaBot extends Client {
     constructor(options) {
         super(options);
-        ["commands", "aliases", "cooldowns"].forEach(x => this[x] = new Collection());
-        this.config = require("../config");
-        this.logger = require("../Helpers/logger");
-        this.usersData = require("../Models/Users");
-        this.groupsData = require("../Models/Groups")
-        this.groupMembersData = require("../Models/GroupMembers")
+        [`commands`, `aliases`, `cooldowns`].forEach(x => this[x] = new Collection());
+        this.config = require(`../config`);
+        this.logger = require(`../Helpers/logger`);
+        this.usersData = require(`../Models/Users`);
+        this.groupsData = require(`../Models/Groups`)
+        this.groupMembersData = require(`../Models/GroupMembers`)
         this.databaseCache = {};
         this.databaseCache.users = new Collection();
         this.databaseCache.groups = new Collection();
@@ -55,7 +55,7 @@ class InstaBot extends Client {
         if (this.databaseCache.users.get(userID)) {
             return isLean ? this.databaseCache.users.get(userID).toJSON() : this.databaseCache.users.get(userID);
         } else {
-            let userData = (isLean ? await this.usersData.findOne({ id: userID }).populate("members").lean() : await this.usersData.findOne({ id: userID }).populate("members"));
+            let userData = (isLean ? await this.usersData.findOne({ id: userID }).populate(`members`).lean() : await this.usersData.findOne({ id: userID }).populate(`members`));
             if (userData) {
                 if (!isLean) this.databaseCache.users.set(userID, userData);
                 return userData;
@@ -72,7 +72,7 @@ class InstaBot extends Client {
         if (this.databaseCache.groupMembers.get(`${userID}-${groupID}`)) {
             return isLean ? this.databaseCache.groupMembers.get(`${userID}-${groupID}`).toJSON() : this.databaseCache.groupMembers.get(`${userID}-${groupID}`);
         } else {
-            let groupMemberData = (isLean ? await this.groupMembersData.findOne({ id: userID, groupID: groupID }).populate("members").lean() : await this.groupMembersData.findOne({ id: userID, groupID: groupID }).populate("members"));
+            let groupMemberData = (isLean ? await this.groupMembersData.findOne({ id: userID, groupID: groupID }).populate(`members`).lean() : await this.groupMembersData.findOne({ id: userID, groupID: groupID }).populate(`members`));
             if (groupMemberData) {
                 if (!isLean) this.databaseCache.groupMembers.set(`${userID}-${groupID}`, groupMemberData);
                 return groupMemberData;
@@ -89,7 +89,7 @@ class InstaBot extends Client {
         if (this.databaseCache.groups.get(groupID)) {
             return isLean ? this.databaseCache.groupMembers.get(groupID).toJSON() : this.databaseCache.groupMembers.get(groupID);
         } else {
-            let groupData = (isLean ? await this.groupMembersData.findOne({ groupID: groupID }).populate("members").lean() : await this.groupMembersData.findOne({ groupID: groupID }).populate("members"));
+            let groupData = (isLean ? await this.groupMembersData.findOne({ groupID: groupID }).populate(`members`).lean() : await this.groupMembersData.findOne({ groupID: groupID }).populate(`members`));
             if (groupData) {
                 if (!isLean) this.databaseCache.groupMembers.set(groupID, groupData);
                 return groupData;
