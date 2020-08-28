@@ -50,13 +50,48 @@ it means that the bot is ready to be used. 🎉
 
 # Available commands 
 
-- !ping
+## Bot
+- !ping: Return the bot ping
+
+
+## Images 
+- !ad: Return an ad image.
+- !affect: Return an affect image.
+- !beautiful: Return a beautiful image.
+- !blur: Return a blured image.
+- !circle: Return a circled image.
+- !confuedStonk: Return a confuedStonk image.
+- !delete: Return a delete image.
+- !facepalm: Return a facepalm image.
+- !gay: Return a gay image.
+- !greyscale: Return a greyscale image.
+- !hitler: Return an hitler image.
+- !invert: Return an invert image.
+- !jail: Return a jail image.
+- !lisaPresentation: Return a lisaPresentation image.
+- !mms: Return a mms image.
+- !notstonk: Return a notstonk image.
+- !poutine: Return a poutine image.
+- !rip: Return a rip image.
+- !sepia: Return a sepia image.
+- !stonk: Return a stonk image.
+- !tatoo: Return a tatoo image.
+- !thomas: Return a thomas image.
+- !trash: Return a trash image.
+- !wanted: Return a wanted image.
+
+## Utils
+- !myinfos: Return some informations about you. (missing some infos)
+
+# Known bugs
+
+- A story answer return an error (TypeError: Cannot read property 'indexOf' of undefined, same for all system messages)
 
 # Future updates 
 
 - Ability to change the prefix on a chat
 - Ability to change the lang
-- Ability to make reminders
+- Ability to make reminders (working on it)
 - Ability to get the informations about an user
 
 Feel free to make a pull request if you have any edit to do in the code or just open an issue if you don't know how to fix it.

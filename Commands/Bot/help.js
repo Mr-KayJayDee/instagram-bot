@@ -3,20 +3,17 @@ const Command = require("../../Structure/Command.js");
 module.exports = class extends Command {
     constructor(client) {
         super(client, {
-            name: "ping",
-            description: "Return the bot ping.",
+            name: "help",
+            description: "Return the commands list.",
             category: "Bot",
             enabled: true,
-            aliases: ["latency"],
+            aliases: ["?"],
             cooldown: 3,
             dmOnly: false,
         });
     }
 
     async run(message, args) {
-        message.chat.sendMessage('Calcul du ping...').then(m => {
-            m.delete();
-            message.chat.sendMessage(`Mon ping est de ${(m.timestamp - message.timestamp) / 1000}ms`)
-        })
+        message.chat.sendMessage("Here are the commands you can use ! https://github.com/Mr-KayJayDee/instagram-bot#available-commands")
     }
 }

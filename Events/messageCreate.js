@@ -6,8 +6,21 @@ module.exports = class {
     }
 
     async emit(message) {
+        const data = {};
+        data.config = this.client.config;
+
         if (message.authorID === this.client.user.id) return;
         message.markSeen();
+        if (message.chat.isGroup) {
+            const groupMembersData = await this.client.findOrCreateGroupMember({ id: message.author.id, groupID: message.chat.id });
+            data.groupMembers = groupMembersData;
+            console.log(groupMembersData)
+            const groupsData = await this.client.findOrCreateGroup({ groupID: message.chat.id });
+            data.groups = groupsData;
+        } else {
+            const usersData = await this.client.findOrCreateUser({ id: message.author.id });
+            data.users = usersData;
+        }
 
         let prefixes = this.client.config.defaultPrefix;
         if (message.content.indexOf(prefixes) !== 0) return;
@@ -46,6 +59,6 @@ module.exports = class {
         tStamps.set(message.authorID, timeNow);
         setTimeout(() => tStamps.delete(message.authorID), cdAmount);
 
-        cmd.run(message, args);
+        cmd.run(message, args, data);
     }
 }

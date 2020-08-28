@@ -4,7 +4,7 @@ module.exports = class {
     }
 
     async emit(user) {
-        console.log(`${user.fullName} (${username}) started following you.`)
+        console.log(`${user.fullName} (${user.username}) started following you.`)
         user.follow();
     }
 }
