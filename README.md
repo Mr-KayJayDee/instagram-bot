@@ -6,7 +6,7 @@ Here is how you can install and use it
 - Open a command prompt
 - Go to the folder you want using 
 ```bash
-cd C:\path\to\the\folder\you\want\
+cd <PATH TO FOLDER>
 ```
 
 - Clone this repository
