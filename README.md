@@ -81,7 +81,7 @@ it means that the bot is ready to be used. 🎉
 - !wanted: Return a wanted image.
 
 ## Utils
-- !myinfos: Return some informations about you. (missing some infos)
+- !myinfos: Return some informations about you.
 
 # Known bugs
 
