@@ -1,13 +1,13 @@
-const Command = require(`../../Structure/Command.js`);
+const Command = require("../../Structure/Command.js");
 
 module.exports = class extends Command {
     constructor(client) {
         super(client, {
-            name: `ping`,
-            description: `Return the bot ping.`,
-            category: `Bot`,
+            name: "ping",
+            description: "Return the bot ping.",
+            category: "Bot",
             enabled: true,
-            aliases: [`latency`],
+            aliases: ["latency"],
             cooldown: 3,
             dmOnly: false,
         });

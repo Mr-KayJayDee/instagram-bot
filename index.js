@@ -28,7 +28,6 @@ const initialize = async () => {
     });
     client.login(process.env.BOTUSERNAME, process.env.PASSWORD);
 
-    client.on('rawFbns', (data) => console.log(data));
     mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
 		client.logger.log(`Connected to the Mongodb database.`, `ready`);
 	}).catch((err) => {
