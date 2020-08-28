@@ -4,7 +4,7 @@ module.exports = class {
     }
 
     async emit(user) {
-        console.log(`${user.fullName} (${username}) wants to follow you.`)
+        console.log(`${user.fullName} (${user.username}) wants to follow you.`)
         user.approveFollow();
     }
 }
