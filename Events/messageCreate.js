@@ -14,7 +14,6 @@ module.exports = class {
         if (message.chat.isGroup) {
             const groupMembersData = await this.client.findOrCreateGroupMember({ id: message.author.id, groupID: message.chat.id });
             data.groupMembers = groupMembersData;
-            console.log(groupMembersData)
             const groupsData = await this.client.findOrCreateGroup({ groupID: message.chat.id });
             data.groups = groupsData;
         } else {
