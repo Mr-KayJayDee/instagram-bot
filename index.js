@@ -29,9 +29,16 @@ const initialize = async () => {
     client.login(process.env.BOTUSERNAME, process.env.PASSWORD);
 
     mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-		client.logger.log(`Connected to the Mongodb database.`, `ready`);
-	}).catch((err) => {
-		client.logger.log(`Unable to connect to the Mongodb database. Error:`+err, `error`);
-	});
+        client.logger.log(`Connected to the Mongodb database.`, `ready`);
+    }).catch((err) => {
+        client.logger.log(`Unable to connect to the Mongodb database. Error:` + err, `error`);
+    });
 };
 initialize();
+
+client.logger.log(`  ___           _                                  `)
+client.logger.log(` |_ _|_ __  ___| |_ __ _  __ _ _ __ __ _ _ __ ___  `)
+client.logger.log(`  | || '_ \\/ __| __/ _\` |/ _\` | '__/ _\` | '_ \` _ \\ `)
+client.logger.log(`  | || | | \\__ \\ || (_| | (_| | | | (_| | | | | | |`)
+client.logger.log(` |___|_| |_|___/\\__\\__,_|\\__, |_|  \\__,_|_| |_| |_|`)
+client.logger.log(`                         |___/                     `)
