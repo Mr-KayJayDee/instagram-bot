@@ -1,6 +1,6 @@
 {
   "name": "instabot",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A fully working instagram bot using Insta.js by androz2091",
   "main": "index.js",
   "scripts": {

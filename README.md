@@ -3,6 +3,9 @@
 
 Here is how you can install and use it
 
+[Install the MongoDB Server and MongoDB compass](https://www.mongodb.com/)
+
+
 - Open a command prompt
 - Go to the folder you want using 
 ```bash
@@ -27,6 +30,8 @@ npm i
 ```
 
 - Rename the .env.example file to .env and fill it with your informations
+> Your can get your id by doing !myinfos after starting the bot
+> The default mongodb link is mongodb://localhost:27017/Instagram but you can also use a cluster
 
 - Start the bot 
 
