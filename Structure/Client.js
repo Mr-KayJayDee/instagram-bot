@@ -55,7 +55,7 @@ class InstaBot extends Client {
         if (this.databaseCache.users.get(userID)) {
             return isLean ? this.databaseCache.users.get(userID).toJSON() : this.databaseCache.users.get(userID);
         } else {
-            let userData = (isLean ? await this.usersData.findOne({ id: userID }).populate(`members`).lean() : await this.usersData.findOne({ id: userID }).populate(`members`));
+            let userData = (isLean ? await this.usersData.findOne({ id: userID }).populate(`users`).lean() : await this.usersData.findOne({ id: userID }).populate(`users`));
             if (userData) {
                 if (!isLean) this.databaseCache.users.set(userID, userData);
                 return userData;
@@ -87,16 +87,16 @@ class InstaBot extends Client {
 
     async findOrCreateGroup({ groupID: groupID }, isLean) {
         if (this.databaseCache.groups.get(groupID)) {
-            return isLean ? this.databaseCache.groupMembers.get(groupID).toJSON() : this.databaseCache.groupMembers.get(groupID);
+            return isLean ? this.databaseCache.groups.get(groupID).toJSON() : this.databaseCache.groups.get(groupID);
         } else {
-            let groupData = (isLean ? await this.groupMembersData.findOne({ groupID: groupID }).populate(`members`).lean() : await this.groupMembersData.findOne({ groupID: groupID }).populate(`members`));
+            let groupData = (isLean ? await this.groupsData.findOne({ groupID: groupID }).populate(`groups`).lean() : await this.groupsData.findOne({ groupID: groupID }).populate(`groups`));
             if (groupData) {
-                if (!isLean) this.databaseCache.groupMembers.set(groupID, groupData);
+                if (!isLean) this.databaseCache.groups.set(groupID, groupData);
                 return groupData;
             } else {
-                groupData = new this.groupMembersData({ groupID: groupID });
+                groupData = new this.groupsData({ groupID: groupID });
                 await groupData.save();
-                this.databaseCache.groupMembers.set(groupID, groupData);
+                this.databaseCache.groups.set(groupID, groupData);
                 return isLean ? groupData.toJSON() : groupData;
             }
         }

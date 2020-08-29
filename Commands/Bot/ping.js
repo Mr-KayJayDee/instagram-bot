@@ -14,7 +14,7 @@ module.exports = class extends Command {
     }
 
     async run(message, args) {
-        message.chat.sendMessage('Calcul du ping...').then(m => {
+        message.chat.sendMessage('Fetching ping...').then(m => {
             m.delete();
             message.chat.sendMessage(`My ping is currently at ${(m.timestamp - message.timestamp) / 1000}ms\nI use ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}mb of RAM`)
         })

@@ -14,7 +14,7 @@ module.exports = class extends Command {
     }
 
     async run(message, args, data) {
-        if (parseInt(message.author.id) !== parseInt(data.config.ownerID)) return message.chat.sendMessage("Vous n'avez pas la permission d'utiliser cette commande.")
+        if (parseInt(message.author.id) !== parseInt(data.config.ownerID)) return message.chat.sendMessage("You do not have the permission to use this command")
         let result = new Promise((resolve) => resolve(eval(args.join(` `))));
 
         return result.then((output) => {
