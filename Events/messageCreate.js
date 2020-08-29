@@ -11,17 +11,20 @@ module.exports = class {
 
         if (message.authorID === this.client.user.id) return;
         message.markSeen();
+        let prefix;
         if (message.chat.isGroup) {
             const groupMembersData = await this.client.findOrCreateGroupMember({ id: message.author.id, groupID: message.chat.id });
             data.groupMembers = groupMembersData;
             const groupsData = await this.client.findOrCreateGroup({ groupID: message.chat.id });
             data.groups = groupsData;
+            prefix = data.groups.prefix;
         } else {
             const usersData = await this.client.findOrCreateUser({ id: message.author.id });
             data.users = usersData;
+            prefix = data.users.prefix;
         }
 
-        let prefixes = this.client.config.defaultPrefix;
+        let prefixes = prefix || this.client.config.defaultPrefix;
         if (message.content.indexOf(prefixes) !== 0) return;
         let args = message.content.slice(prefixes.length).trim().split(/ +/g);
         let command = args.shift().toLowerCase();

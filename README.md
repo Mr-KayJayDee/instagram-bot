@@ -54,6 +54,7 @@ it means that the bot is ready to be used. 🎉
 - !ping: Return the bot ping.
 - !help: Return the bot commands list.
 - !eval: Eval a JS code.
+- !prefix: Change the bot's prefix for groups or private chats.
 
 
 ## Images 
