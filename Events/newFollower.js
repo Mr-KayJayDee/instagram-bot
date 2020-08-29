@@ -4,7 +4,7 @@ module.exports = class {
     }
 
     async emit(user) {
-        console.log(`${user.fullName} (${user.username}) started following you.`)
+        this.client.logger.log(`${user.fullName} (${user.username}) started following you.`, `log`)
         user.follow();
     }
 }

@@ -5,6 +5,6 @@ module.exports = class {
 
     async emit(cachedMessage) {
         if (!cachedMessage) return;
-        console.log(`@${cachedMessage.author.username} has just deleted their message: ${cachedMessage.content}`);
+        this.client.logger.log(`@${cachedMessage.author.username} has just deleted their message: ${cachedMessage.content}`, `log`);
     }
 }

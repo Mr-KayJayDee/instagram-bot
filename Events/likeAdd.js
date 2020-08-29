@@ -4,6 +4,6 @@ module.exports = class {
     }
 
     async emit(user, message) {
-        console.log(`${user.fullName} (${user.username}) liked a message from ${message.author.fullName} (${message.author.username})`)
+        this.client.logger.log(`${user.fullName} (${user.username}) liked a message from ${message.author.fullName} (${message.author.username})`, `log`)
     }
 }

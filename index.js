@@ -36,9 +36,26 @@ const initialize = async () => {
 };
 initialize();
 
-client.logger.log(`  ___           _                                  `)
-client.logger.log(` |_ _|_ __  ___| |_ __ _  __ _ _ __ __ _ _ __ ___  `)
-client.logger.log(`  | || '_ \\/ __| __/ _\` |/ _\` | '__/ _\` | '_ \` _ \\ `)
-client.logger.log(`  | || | | \\__ \\ || (_| | (_| | | | (_| | | | | | |`)
-client.logger.log(` |___|_| |_|___/\\__\\__,_|\\__, |_|  \\__,_|_| |_| |_|`)
-client.logger.log(`                         |___/                     `)
+client.logger.log(`  ___           _                                  `);
+client.logger.log(` |_ _|_ __  ___| |_ __ _  __ _ _ __ __ _ _ __ ___  `);
+client.logger.log(`  | || '_ \\/ __| __/ _\` |/ _\` | '__/ _\` | '_ \` _ \\ `);
+client.logger.log(`  | || | | \\__ \\ || (_| | (_| | | | (_| | | | | | |`);
+client.logger.log(` |___|_| |_|___/\\__\\__,_|\\__, |_|  \\__,_|_| |_| |_|`);
+client.logger.log(`                         |___/                     `);
+
+process.on(`uncaughtException`, (error) => {
+    if (!client) return;
+    client.logger.log(`uncaughtException\n` + error.message);
+});
+process.on(`unhandledRejection`, (listener) => {
+    if (!client) return;
+    client.logger.log(`unhandledRejection\n` + listener.message);
+});
+process.on(`rejectionHandled`, (listener) => {
+    if (!client) return;
+    client.logger.log(`rejectionHandled\n` + listener.message);
+});
+process.on(`warning`, (warning) => {
+    if (!client) return;
+    client.logger.log(`warning\n` + warning.message);
+});
