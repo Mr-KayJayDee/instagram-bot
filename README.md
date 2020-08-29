@@ -51,7 +51,9 @@ it means that the bot is ready to be used. 🎉
 # Available commands 
 
 ## Bot
-- !ping: Return the bot ping
+- !ping: Return the bot ping.
+- !help: Return the bot commands list.
+- !eval: Eval a JS code.
 
 
 ## Images 
