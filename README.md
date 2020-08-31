@@ -61,6 +61,9 @@ it means that the bot is ready to be used. 🎉
 - !eval: Eval a JS code.
 - !prefix: Change the bot's prefix for groups or private chats.
 
+## Games
+- !bingo: Find a number between 1 and 100 in 2 minutes.
+
 
 ## Images 
 - !ad: Return an ad image.
