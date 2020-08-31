@@ -76,13 +76,13 @@ it means that the bot is ready to be used. 🎉
 - !facepalm: Return a facepalm image.
 - !gay: Return a gay image.
 - !greyscale: Return a greyscale image.
-- !hitler: Return an hitler image.
+- !hitler: Return a "worse than Hilter" meme.
 - !invert: Return an invert image.
 - !jail: Return a jail image.
 - !lisaPresentation: Return a lisaPresentation image.
 - !mms: Return a mms image.
 - !notstonk: Return a notstonk image.
-- !poutine: Return a poutine image.
+- !poutine: Return a poutine meme image.
 - !rip: Return a rip image.
 - !sepia: Return a sepia image.
 - !stonk: Return a stonk image.
@@ -97,6 +97,7 @@ it means that the bot is ready to be used. 🎉
 # Known bugs
 
 - A story answer return an error (TypeError: Cannot read property 'indexOf' of undefined, same for all system messages)
+- The chatUserAdd event return an error (IgResponseError: POST /api/v1/direct_v2/threads/broadcast/text/ - 500 Internal Server Error;)
 
 # Future updates 
 
