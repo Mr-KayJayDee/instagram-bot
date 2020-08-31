@@ -4,7 +4,7 @@ module.exports = class {
     }
 
     async emit() {
-        client.cache.pendingChats.forEach((chat) => chat.approve());
+        this.client.cache.pendingChats.forEach((chat) => chat.approve());
         this.client.logger.log(`Logged in as ${this.client.user.fullName} (${this.client.user.username}).`, `ready`);
         this.client.logger.log(`Followers: ${this.client.user.followerCount}`, `ready`);
         this.client.logger.log(`Following: ${this.client.user.followingCount}`, `ready`);
