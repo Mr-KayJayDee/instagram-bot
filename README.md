@@ -62,7 +62,7 @@ it means that the bot is ready to be used. 🎉
 - !prefix: Change the bot's prefix for groups or private chats.
 
 ## Games
-- !bingo: Find a number between 1 and 100 in 2 minutes.
+- !bingo: Find a number between 1 and 100 in 2 minutes. (some bug may appears)
 
 
 ## Images 
