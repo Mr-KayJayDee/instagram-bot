@@ -61,6 +61,7 @@ module.exports = class {
         tStamps.set(message.authorID, timeNow);
         setTimeout(() => tStamps.delete(message.authorID), cdAmount);
 
+        message.chat.startTyping({ time: 5000 })
         cmd.run(message, args, data);
     }
 }

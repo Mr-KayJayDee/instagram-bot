@@ -30,7 +30,7 @@ module.exports = class extends Command {
 
         collector.on(`end`, (reason) => {
             if (reason === `idle`) {
-                message.chat.sendMessage(`the time is out and no one found the number... it was: ${numberToFind}!`)
+                message.chat.sendMessage(`The time is out and no one found the number... it was: ${numberToFind}!`)
             }
         });
     }
