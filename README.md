@@ -1,6 +1,8 @@
 # Instagram Bot
 ### A fully working instagram bot using [Insta.js](https://github.com/Androz2091/insta.js) by [androz2091](https://github.com/Androz2091)
 
+Please join [this](https://discord.gg/7SBruKCTvQ) community server to follow all my projects or if you need help.
+
 Here is how you can install and use it
 
 [Install the MongoDB Server and MongoDB compass](https://www.mongodb.com/)
